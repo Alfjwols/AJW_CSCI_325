@@ -55,6 +55,8 @@ int Vector::capacity(){
 }
 
 void Vector::reserve(int n){
+  if(n <= vec_capacity) return;
+
   int* temp_ptr = new int[n];
   
   // copy each element in vec_ptr to temp_ptr
@@ -75,7 +77,7 @@ void Vector::reserve(int n){
 void Vector::push_back(int element){
   // if the vector is already full, call reserve to increase capacity
   if(vec_size == vec_capacity){
-    reserve(PUSHBACK_RESERVE_AMOUNT);
+    reserve(vec_capacity + PUSHBACK_RESERVE_AMOUNT);
   }
 
   // add the element at the point 
