@@ -27,31 +27,35 @@ Vector::Vector(const Vector &other){
   }
 }
 
-~Vector::Vector(){
+Vector::~Vector(){
   delete[] vec_ptr;
 }
 
 Vector& Vector::operator=(const Vector &other){
-  vec_size = other.vec_size;
-  vec_capacity = other.vec_capacity;
-  vec_ptr = new int[vec_capacity];
 
-  for(int i = 0; i < vec_size; i++){
-    vec_ptr[i] = other.vec_ptr[i];                                                            
-  }  
+  vec_capacity = other.vec_capacity;
+  vec_size = other.vec_size;
+
+  delete[] vec_ptr;
+  vec_ptr = new int[vec_capacity];
+  
+  for (int i = 0; i < other.vec_size; i++){
+    vec_ptr[i] = other.vec_ptr[i];
+  }
+
+  return *this;
 }
 
 int Vector::size(){
   return vec_size;
 }
 
-int Vector::Capacity(){
+int Vector::capacity(){
   return vec_capacity;
 }
 
-void reserve(int n){
+void Vector::reserve(int n){
   int* temp_ptr = new int[n];
- 
   
   // copy each element in vec_ptr to temp_ptr
   for(int i = 0; i < vec_size; i++){   
@@ -59,7 +63,7 @@ void reserve(int n){
   }
 
   // deallocate old array
-  delete[] vec_ptr[i];
+  delete[] vec_ptr;
 
   // set vec_ptr to point to temp_ptr
   vec_ptr = temp_ptr;
@@ -68,7 +72,7 @@ void reserve(int n){
   vec_capacity = n;
 }
 
-void push_back(int element){
+void Vector::push_back(int element){
   // if the vector is already full, call reserve to increase capacity
   if(vec_size == vec_capacity){
     reserve(PUSHBACK_RESERVE_AMOUNT);
@@ -80,6 +84,6 @@ void push_back(int element){
   vec_size++;
 }
 
-int& operator[](unsigned int index){
+int& Vector::operator[](unsigned int index){
   return vec_ptr[index];
 }

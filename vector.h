@@ -119,6 +119,6 @@ class Vector{
  private:
   int *vec_ptr; // Points to the vector's dynamic array
   int vec_size, vec_capacity; // Same as size and capacity for std::vector
-}
+};
 
 #endif

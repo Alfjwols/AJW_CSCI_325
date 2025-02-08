@@ -1,6 +1,6 @@
 
 output: main.o vector.o
-	g++ main.o -o vectorTest
+	g++ main.o -Wall -Wextra -o vectorTest
 
 main.o: main.cpp
 	g++ -c main.cpp
