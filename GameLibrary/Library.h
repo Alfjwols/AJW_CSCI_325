@@ -72,6 +72,30 @@ public:
  * 
  */
   void delete_Title(std::string Title, short Year);
+
+
+/**
+ * Reads file at location "path" and enters data from the file into the game library
+ *
+ * @param string path the path to the file to read
+ * @pre file at path exists and data is stored in correct format
+ * @return void 
+ * @post Game Library is filled from data from the file at "path"
+ * 
+ */
+  void Load_Library(std::string path);
+
+
+/**
+ * Saves data in Game Library to the file at "path"
+ *
+ * @param string path the path to the file to write the data in Game Library to
+ * @pre path of file is an existing folderpath to a file
+ * @return void 
+ * @post file is created or writen to with the data from Game Library in the correct format
+ * 
+ */
+  void Save_Library(std::string path);
   
 private:
   std::list<Game> GamesList;

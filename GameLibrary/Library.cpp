@@ -13,11 +13,16 @@
 #include <list>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 bool isBefore(std::string str1, std::string str2);
 
 Library::Library(){
   ListSize = 0;
+}
+
+Library::~Library(){
+
 }
 
 void Library::insert_sorted(Game g){
@@ -72,9 +77,41 @@ void Library::delete_Title(std::string Title, short Year){
   }
 }
 
+void Library::Load_Library(std::string path){
+  std::ifstream file;
 
+  file.open(path, std::ios::in);
 
+  if(!file){
+    std::cout << "file not found!" << std::endl;
+    return;
+  }
+  
+  std::string Title, Publisher, Genre;
+  float HoursPlayed, Price;
+  short Year;
 
+  while(file){
+    // get data
+    std::getline(file, Title);
+    std::getline(file, Publisher);
+    std::getline(file, Genre);
+    file >> HoursPlayed >> Price >> Year;
+
+    // make game object
+    Game g = Game(Title, Publisher, Genre, HoursPlayed, Price, Year);
+
+    insert_sorted(g);
+    
+    std::getline(file, Title); // gets rid of extra blank space between games
+  }
+  
+  file.close();
+}
+
+void Library::Save_Library(std::string path){
+
+}
 
 /**
  * Checks if str1 comes before str2 alphabetically
@@ -87,7 +124,7 @@ void Library::delete_Title(std::string Title, short Year){
 bool isBefore(std::string str1, std::string str2){
   int strLen = str1.length(); // default to length of str1
 
-  if( strLen < str2.length()){ // switch to len of str2 if it is larger
+  if( strLen < (int)str2.length()){ // switch to len of str2 if it is larger
     strLen = str2.length();
   }
 

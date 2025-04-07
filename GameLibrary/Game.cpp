@@ -23,6 +23,10 @@ Game::Game(std::string Title, std::string Publisher, std::string Genre, float Ho
   year = Year;
 }
 
+Game::~Game(){
+
+}
+
 std::string Game::getTitle(){
   return title;
 }
