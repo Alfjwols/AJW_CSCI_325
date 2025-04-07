@@ -21,15 +21,12 @@ int main() {
   
   cout << "Program Started" << endl;
 
-  cout << "Enter filename: ";
-
-  cin >> str;
-
+  
   Library L;
 
-  L.Load_Library(str);
+  L.Load_Library("GameLibraries/Library1.txt");
 
-  L.find_Genre("fun");
+  L.find_Genre("Space");
   
   return 0;
 }

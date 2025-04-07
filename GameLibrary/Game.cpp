@@ -9,9 +9,10 @@
 
 #include "Game.h"
 #include <string>
+#include <iostream>
 
 Game::Game(){
-
+  DebugOutput = false;
 }
 
 Game::Game(std::string Title, std::string Publisher, std::string Genre, float HoursPlayed, float Price, short Year){
@@ -21,6 +22,16 @@ Game::Game(std::string Title, std::string Publisher, std::string Genre, float Ho
   hoursPlayed = HoursPlayed;
   price = Price;
   year = Year;
+
+  if(DebugOutput){
+    std::cout << " Game added:" << std::endl
+	      << "Name: " << title << std::endl
+	      << "Publ: " << publisher << std::endl
+	      << "Genr: " << genre << std::endl
+	      << "HrPl: " << hoursPlayed << std::endl
+	      << "Cost: " << price << std::endl
+	      << "Year: " << year << std::endl << std:: endl;
+  }
 }
 
 Game::~Game(){

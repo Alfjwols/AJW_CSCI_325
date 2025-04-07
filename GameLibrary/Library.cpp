@@ -80,8 +80,10 @@ void Library::delete_Title(std::string Title, short Year){
 void Library::Load_Library(std::string path){
   std::ifstream file;
 
+  std::cout << "Looking for: \"" << path << "\"" << std::endl;
+  
   file.open(path, std::ios::in);
-
+  
   if(!file){
     std::cout << "file not found!" << std::endl;
     return;
@@ -104,6 +106,7 @@ void Library::Load_Library(std::string path){
     insert_sorted(g);
     
     std::getline(file, Title); // gets rid of extra blank space between games
+    std::getline(file, Title);
   }
   
   file.close();

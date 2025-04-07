@@ -104,6 +104,7 @@ class Game{
   float hoursPlayed;
   float price;
   short year;
+  bool DebugOutput;
 };
 
 #endif
