@@ -16,6 +16,7 @@ Game::Game(){
 }
 
 Game::Game(std::string Title, std::string Publisher, std::string Genre, float HoursPlayed, float Price, short Year){
+  DebugOutput = false;
   title = Title;
   publisher = Publisher;
   genre = Genre;
