@@ -113,7 +113,24 @@ void Library::Load_Library(std::string path){
 }
 
 void Library::Save_Library(std::string path){
+  std::cout << "Saving to: " << path;
+  std::ofstream file(path);
 
+  std::list<Game>::iterator it;
+
+  for( it = GamesList.begin(); it != GamesList.end(); it++ ){
+
+    file << it->getTitle() << std::endl;
+    file << it->getPublisher() << std::endl;
+    file << it->getGenre() << std::endl;
+    file << it->getHoursPlayed() << std::endl;
+    file << it->getPrice() << std::endl;
+    file << it->getYear() << std::endl;
+
+    std::cout << "Saved " << it->getTitle() << " to " << path << std::endl;
+  }
+
+  file.close();
 }
 
 /**
@@ -127,7 +144,7 @@ void Library::Save_Library(std::string path){
 bool isBefore(std::string str1, std::string str2){
   int strLen = str1.length(); // default to length of str1
 
-  if( strLen < (int)str2.length()){ // switch to len of str2 if it is larger
+  if( strLen > (int)str2.length()){ // switch to len of str2 if it is larger
     strLen = str2.length();
   }
 

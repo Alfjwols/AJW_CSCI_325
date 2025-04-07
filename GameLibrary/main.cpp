@@ -16,17 +16,19 @@
 using namespace std;
 
 
-bool GameLibraryView(Library L);
+bool GameLibraryView(Library& L);
 
-void SearchByTitle(Library L);
+void SearchByTitle(Library& L);
 
-void SearchByGenre(Library L);
+void SearchByGenre(Library& L);
 
-void AddGame(Library L);
+void AddGame(Library& L);
 
-void RemoveGame(Library L);
+void RemoveGame(Library& L);
 
-void SaveQuit(Library L);
+void SaveQuit(Library& L);
+
+string getEntry();
 
 int main() {
 
@@ -41,14 +43,15 @@ int main() {
 
   L.Load_Library("GameLibraries/Library1.txt"); // prechosen for testing purposes
 
-  GameLibraryView(L);
+
+  while(GameLibraryView(L));
   
 
   
   return 0;
 }
 
-bool GameLibraryView(Library L){
+bool GameLibraryView(Library& L){
 
   cout << "Please choose an option" << endl;
 
@@ -66,40 +69,124 @@ bool GameLibraryView(Library L){
   case '1':
     SearchByTitle(L);
     break;
-
+  case '2':
+    SearchByGenre(L);
+    break;
+  case '3':
+    AddGame(L);
+    break;
+  case '4':
+    RemoveGame(L);
+    break;
+  case 'q':
+    SaveQuit(L);
+    return false;
+    break;
   }
 
-  return false;
+  return true;
 }
 
-void SearchByTitle(Library L){
-  string str1, str2;
+void SearchByTitle(Library& L){
+  string str;
   cout << "Please enter title to search: ";
 
-  cin >> str1;
+  str = getEntry();
+  
+  cout << "Searching for: " << str << endl;
 
-  getline(cin, str2);
-
-  str1 += str2;
-
-  cout << "Searching for: " << str1 << endl;
-
-  L.find_Game(str1);
+  L.find_Game(str);
     
 }
 
-void SearchByGenre(Library L){
+void SearchByGenre(Library& L){
+  string str;
+  cout << "Please enter genre to search: ";
+
+  str = getEntry();
+  
+  cout << "Searching for: " << str << endl;
+
+  L.find_Genre(str);
+}
+
+void AddGame(Library& L){
+  string Title, Publisher, Genre;
+  float HoursPlayed, Price;
+  short Year;
+  
+  cout << "Please enter game title: ";
+
+  Title = getEntry();
+
+  cout << "Please enter publisher name: ";
+
+  Publisher = getEntry();
+
+  cout << "Please enter game genre: ";
+
+  Genre = getEntry();
+
+  cout << "Please enter hours played: ";
+
+  cin >> HoursPlayed;
+
+  cout << "Please enter game price: ";
+
+  cin >> Price;
+
+  cout << "Please enter year of release: ";
+
+  cin >> Year;
+
+  Game g = Game(Title, Publisher, Genre, HoursPlayed, Price, Year);
+
+  L.insert_sorted(g);
+
   
 }
 
-void AddGame(Library L){
+void RemoveGame(Library& L){
+  string Title, str;
+  short year;
+  
+  cout << "Please enter title you wish to remove: ";
+
+  Title = getEntry();
+
+  cout << "Please enter release year of title: ";
+
+  cin >> year;
+
+  cout << endl << "Type 'yes' to confirm the removal of the following game: " << endl
+       << Title << endl
+       << year << endl;
+
+  cin >> str;
+
+  if( str == "yes" ){
+    L.delete_Title(Title, year);
+    cout << "Game has been removed" << endl;
+  }
 
 }
 
-void RemoveGame(Library L){
+void SaveQuit(Library& L){
+  string path;
+  cout << "Please enter file to save to: ";
 
+  cin >> path;
+  
+  L.Save_Library(path);
 }
 
-void SaveQuit(Library L){
+string getEntry(){ // grabs full line of input
+  string str1, str2;
 
+  cin >> str1;
+  getline(cin, str2);
+
+  str1 += str2;
+  
+  return str1;
 }
