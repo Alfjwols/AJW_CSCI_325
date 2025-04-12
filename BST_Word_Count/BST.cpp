@@ -122,6 +122,11 @@ void BST::load_file(std::string path){
 
 void BST::deleteNode(std::string key){
   Node* n = start->findNode(key);
+
+  if (n == nullptr){
+    std::cout << "key not found '" << key << "'" << std::endl;
+  }
+  
   Node* replacementNode = nullptr;
   Node* parentNode = n->getParent();  
   bool isLeft = true; // of parent
@@ -174,9 +179,6 @@ void BST::deleteNode(std::string key){
   delete n;
   
 }
-
-
-
 
 
 
