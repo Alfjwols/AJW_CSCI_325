@@ -15,4 +15,7 @@ namespace HelperFunctions{
   std::string toLower(std::string str);
 
   bool ComesBefore(std::string str1, std::string str2);
+
+  std::string filterChars(std::string str, std::string allowedChars);
+  
 }

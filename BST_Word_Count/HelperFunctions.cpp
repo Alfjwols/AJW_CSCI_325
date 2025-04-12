@@ -44,10 +44,24 @@ namespace HelperFunctions{
   std::string toLower(std::string str){
     for(int i = 0; i < (int)str.length(); i++){
       if(str[i] >= 'A' && str[i] <= 'Z'){
-	str[i] = str[i] + 35;
+	str[i] = str[i] + ('a' - 'A');
       }
     }
     return str;
+  }
+
+  std::string filterChars(std::string str, std::string allowedChars){
+    std::string newStr = "";
+    for(int i = 0; i < (int)str.length(); i++){
+      for(int j = 0; j < (int)allowedChars.length(); j++){
+	if( str[i] == allowedChars[j] ){
+	  newStr += str[i];
+	  break;
+	}
+      }
+    }
+    
+    return newStr;
   }
   
 } // end of HelperFunctions
