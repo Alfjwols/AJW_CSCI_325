@@ -184,12 +184,17 @@ void getWordCounts(BST& wordlist, string path){
   
   while(file){
     file >> str;
+
+    //cout << "found word '" << str << "'" << endl;
+    
     str = HelperFunctions::toLower(str);
     str = HelperFunctions::filterChars(str, ALLOWED_CHARACHTERS);
-    
-    wordlist.add(str);
-  }
 
+    
+    if(!str.empty()){
+      wordlist.add(str);
+    }
+  }
   file.close();
 
   cout << "Read from file '" << path << "'" << endl;

@@ -16,6 +16,7 @@ Node::Node(std::string Key){
   data = 0;
   left = nullptr;
   right = nullptr;
+  parent = nullptr;
 }
 
 Node::~Node(){
@@ -36,7 +37,8 @@ void Node::add(int num){
 }
 
 Node Node::operator++(int){
-  Node temp = *this;
+  Node temp(key);
+  temp.data = data;
   ++data;
   return temp;
 }

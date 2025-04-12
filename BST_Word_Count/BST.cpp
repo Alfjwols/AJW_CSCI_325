@@ -34,6 +34,7 @@ void BST::add(std::string key){
   }
   
   Node* n = start->findNode(key);
+  //std::cout << "found Node '" << n->getKey() << "'" << std::endl;
   
   if(n != nullptr){
     
