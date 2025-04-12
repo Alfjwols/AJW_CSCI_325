@@ -15,3 +15,8 @@ Use:
 
 Description
 This Word counter makes use of a BST to try and streamline the process of word counting and organization.  You can use it to read any text at a decent speed and save the list to a file for later use.
+
+Known Problems:
+It does run int segmentation faults sometimes. The easily repeatable ones are when trying to display the list when it hasnt been populated yet and when removing the last member of the list (display wise).
+
+Another notable problem is sometimes children elements get deleted along with the desired deleted element (spent awhile trying to go through deleteNode again but can't figure out the cause)
