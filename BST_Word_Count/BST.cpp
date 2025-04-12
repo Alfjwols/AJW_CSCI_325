@@ -24,8 +24,46 @@ int BST::find(std::string key){
   return start->findNode(key)->getData();
 }
 
+void BST::add(std::string key){
+  
+  if(start == nullptr){
+    Node* n = new Node(key);
+    (*n)++;
+    start = n;
+    return;
+  }
+  
+  Node* n = start->findNode(key);
+  
+  if(n != nullptr){
+    
+    //std::cout << "incremented " << n->getKey() << std::endl;
+    (*n)++;
+  }
+  else{
+    n = new Node(key);
+    (*n)++;
+    start->placeNode(n);
+  }
+}
+
 void BST::set(std::string key, int count){
-  start->findNode(key)->setData(count);
+  if(start == nullptr){
+    Node* n = new Node(key);
+    n->setData(count);
+    start = n;
+    return;
+  }
+
+  Node* n = start->findNode(key);
+  if ( n == nullptr ){ // Node was not found
+    Node* n2 = new Node(key);
+    n2->setData(count);
+    start->placeNode(n2);
+  }
+  else{
+    n->setData(count);
+  }
 }
 
 void BST::print(){
@@ -54,12 +92,31 @@ void BST::save_file(std::string path){
   std::ofstream file;
 
   file.open(path);
-
+  
   start->save(file);
 
   file.close();
   
-  std::cout << "Saved to " << path << std::endl;
+}
+
+void BST::load_file(std::string path){
+  std::ifstream file;
+  std::string key;
+  int data;
+  
+  file.open(path);
+
+  if(!file){
+    std::cout << "Unable to open file '" << path << "'" << std::endl;
+    return;
+  }
+  
+  while(file){
+    file >> key >> data;
+    set(key,data);
+  }
+  
+  file.close();
 }
 
 void BST::deleteNode(std::string key){

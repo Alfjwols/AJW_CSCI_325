@@ -61,6 +61,17 @@ class BST{
 
 
 /**
+ * Adds/increments a Node to the BST with they key 'key'
+ *
+ * @param std::string key the key for the Node
+ * @pre 
+ * @return void 
+ * @post Node with key 'key' will be added/incremented
+ * 
+ */
+  void add(std::string key);
+  
+/**
  * Prints every node in alphabetical order by key. prints as: (key, data)
  *
  * @return void
@@ -97,6 +108,18 @@ class BST{
   void save_file(std::string path);
 
 
+
+/**
+ * loads a BST from a file with format: key data
+ *
+ * @param std::string path the file to load from
+ * @pre path points to a valid and properly formated file
+ * @return void 
+ * @post BST is filled with data from the file
+ * 
+ */
+  void load_file(std::string path);
+  
 /**
  * Deletes the Node with the specified key
  *
