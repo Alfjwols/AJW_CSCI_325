@@ -8,7 +8,9 @@
  */
 
 #include "BST.h"
+#include "HelperFunctions.h"
 #include <fstream>
+#include <iostream>
 
 BST::BST(){
   start = nullptr;
@@ -42,25 +44,25 @@ void BST::min(){
 void BST::max(){
   Node* rightmost = start;
 
-  while(leftmost->getRight() != nullptr){
+  while(rightmost->getRight() != nullptr){
     rightmost = rightmost->getRight();
   }
   rightmost->print();
 }
 
 void BST::save_file(std::string path){
-  std::ifstream file;
+  std::ofstream file;
 
   file.open(path);
 
   start->save(file);
 
-  file.close;
+  file.close();
   
   std::cout << "Saved to " << path << std::endl;
 }
 
-void BST::delete(std::string key){
+void BST::deleteNode(std::string key){
   Node* n = start->findNode(key);
   Node* replacementNode = nullptr;
   Node* parentNode = n->getParent();  

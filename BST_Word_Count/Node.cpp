@@ -7,7 +7,8 @@
  * Implementation of the Node class
  */
 
-#include "NODE.H"
+#include "Node.h"
+#include "HelperFunctions.h"
 #include <iostream>
 
 Node::Node(std::string Key){
@@ -122,7 +123,7 @@ void Node::printAll(){
   }
 }
 
-void Node::save(std::fstream& file){
+void Node::save(std::ofstream& file){
   if( left != nullptr ){
     left->save(file);
   }

@@ -7,14 +7,17 @@
  * a file of helpful functions including: ComesBefore toLower
  */
 
-namespace HelperFunctions{
+#include "HelperFunctions.h"
+#include <string>
 
+namespace HelperFunctions{
+  
   std::string toLower(std::string str);
   
   bool ComesBefore(std::string str1, std::string str2){
     int strLen = str1.length();
     
-    if(strLen > str2.length()){ // if str2 is smaller then change strLen
+    if(strLen > (int)str2.length()){ // if str2 is smaller then change strLen
       strLen = str2.length();
     }
     str1 = toLower(str1);
@@ -28,7 +31,7 @@ namespace HelperFunctions{
 	return true;
 	
       }
-      else if(str[i] > str2[i]){
+      else if(str1[i] > str2[i]){
 	
 	return false;
 	
@@ -39,7 +42,7 @@ namespace HelperFunctions{
   }
   
   std::string toLower(std::string str){
-    for(int i = 0; i < str.length(); i++){
+    for(int i = 0; i < (int)str.length(); i++){
       if(str[i] >= 'A' && str[i] <= 'Z'){
 	str[i] = str[i] + 35;
       }

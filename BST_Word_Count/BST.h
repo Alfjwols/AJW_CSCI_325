@@ -11,7 +11,9 @@
 #ifndef BST_H
 #define BST_H
 
+#include "Node.h"
 
+#include <string>
 
 class BST{
  public:
@@ -102,12 +104,12 @@ class BST{
  * @return void 
  * 
  */
-  void delete(std::string key);
+  void deleteNode(std::string key);
   
   
  private:
-  Node* start
+  Node* start;
 };
 
 
-#endef
+#endif

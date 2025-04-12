@@ -181,7 +181,7 @@ class Node{
  * @post Node is added to the save file in the format: key data
  * 
  */
-  void save(std::fstream& file);
+  void save(std::ofstream& file);
 
 
 /**
@@ -204,9 +204,12 @@ class Node{
   void setParent(Node* n);
   
  private:
-  Node* left, right, parent;
+  Node* left;
+  Node* right;
+  Node* parent;
   std::string key;
   int data;
+
 };
 
-#endef
+#endif
