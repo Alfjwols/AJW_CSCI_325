@@ -5,8 +5,11 @@ CFLAGS = -Wall -Wextra -C
 
 all: $(TARGET)
 
-$(TARGET): driver.o BST.o Node.o
-	$(CC) driver.o BST.o Node.o -o $(TARGET)
+$(TARGET): driver.o BST.o Node.o HelperFunctions.o
+	$(CC) driver.o BST.o Node.o HelperFunctions.o -o $(TARGET)
+
+HelperFunctions.o: HelperFunctions.cpp
+	$(CC) $(CFLAGS) HelperFunctions.cpp -o HelperFunctions.o
 
 driver.o: driver.cpp
 	$(CC) $(CFLAGS) driver.cpp -o driver.o
