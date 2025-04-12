@@ -75,7 +75,7 @@ class Node{
  * @post data is increased by 1
  * 
  */
-  Node& operator++();
+  Node operator++(int);
 
 
 
@@ -155,7 +155,7 @@ class Node{
 
 
 /**
- * Prints out the Node in the format: (key, data)
+ * Prints out the Node in the format: key: data
  *
  * @return void
  * 
@@ -165,7 +165,7 @@ class Node{
 
 
 /**
- * Recursive functions that prints all children Nodes (left and right) in the format: (key, data)
+ * Recursive functions that prints all children Nodes (left and right) in the format: key: data
  *
  * @return void
  * 

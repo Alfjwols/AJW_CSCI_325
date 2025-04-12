@@ -35,9 +35,10 @@ void Node::add(int num){
   data += num;
 }
 
-Node& Node::operator++(){
-  data++;
-  return *this;
+Node Node::operator++(int){
+  Node temp = *this;
+  ++data;
+  return temp;
 }
 
 Node* Node::getLeft(){
@@ -108,7 +109,7 @@ Node* Node::findNode(std::string Key){
 }
 
 void Node::print(){
-  std::cout << "( " << key << ", " << data << " )";
+  std::cout << key << ": " << data;
 }
 
 void Node::printAll(){
@@ -117,6 +118,7 @@ void Node::printAll(){
   }
   
   print();
+  std::cout << std::endl;
   
   if( right != nullptr){
     right->printAll();
