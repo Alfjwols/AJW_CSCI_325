@@ -66,24 +66,37 @@ $(function() {
   <div class="headertitle"><div class="title">Supervisor.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SUPERVISOR_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SUPERVISOR_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Employee.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classSupervisor.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classSupervisor.html">Supervisor</a> : <span class="keyword">public</span> <a class="code hl_class" href="classEmployee.html">Employee</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordtype">int</span> numSupervised;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keywordtype">void</span> print();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keywordtype">double</span> calculatePay();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_class" href="classSupervisor.html">Supervisor</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <a class="code hl_class" href="classSupervisor.html">Supervisor</a>(<span class="keywordtype">int</span> ID, <span class="keywordtype">int</span> years, <span class="keywordtype">double</span> hourlyRate, <span class="keywordtype">float</span> hoursWorked, <span class="keywordtype">int</span> numSupervised);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif </span><span class="comment">//SUPERVISOR_H</span></div>
-<div class="ttc" id="aclassEmployee_html"><div class="ttname"><a href="classEmployee.html">Employee</a></div><div class="ttdef"><b>Definition:</b> Employee.h:4</div></div>
-<div class="ttc" id="aclassSupervisor_html"><div class="ttname"><a href="classSupervisor.html">Supervisor</a></div><div class="ttdef"><b>Definition:</b> Supervisor.h:6</div></div>
+<a href="Supervisor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef SUPERVISOR_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define SUPERVISOR_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="Employee_8h.html">Employee.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classSupervisor.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classSupervisor.html">Supervisor</a> : <span class="keyword">public</span> <a class="code hl_class" href="classEmployee.html">Employee</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">int</span> numSupervised;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSupervisor.html#a92483dc9a54904d79b46c6ec4efb3f54">print</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordtype">double</span> <a class="code hl_function" href="classSupervisor.html#aa37daa89523c08b84ae8141299e036f8">calculatePay</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_function" href="classSupervisor.html#a9d7eafc36b5429092ba0f758bc7841c4">Supervisor</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <a class="code hl_function" href="classSupervisor.html#a9d7eafc36b5429092ba0f758bc7841c4">Supervisor</a>(<span class="keywordtype">int</span> ID, <span class="keywordtype">int</span> years, <span class="keywordtype">double</span> hourlyRate, <span class="keywordtype">float</span> hoursWorked, <span class="keywordtype">int</span> numSupervised);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">//SUPERVISOR_H</span></div>
+<div class="ttc" id="aEmployee_8h_html"><div class="ttname"><a href="Employee_8h.html">Employee.h</a></div><div class="ttdoc">The definition of the Employee class.</div></div>
+<div class="ttc" id="aclassEmployee_html"><div class="ttname"><a href="classEmployee.html">Employee</a></div><div class="ttdef"><b>Definition:</b> Employee.h:15</div></div>
+<div class="ttc" id="aclassSupervisor_html"><div class="ttname"><a href="classSupervisor.html">Supervisor</a></div><div class="ttdef"><b>Definition:</b> Supervisor.h:17</div></div>
+<div class="ttc" id="aclassSupervisor_html_a92483dc9a54904d79b46c6ec4efb3f54"><div class="ttname"><a href="classSupervisor.html#a92483dc9a54904d79b46c6ec4efb3f54">Supervisor::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> Supervisor.cpp:26</div></div>
+<div class="ttc" id="aclassSupervisor_html_a9d7eafc36b5429092ba0f758bc7841c4"><div class="ttname"><a href="classSupervisor.html#a9d7eafc36b5429092ba0f758bc7841c4">Supervisor::Supervisor</a></div><div class="ttdeci">Supervisor()</div><div class="ttdef"><b>Definition:</b> Supervisor.cpp:18</div></div>
+<div class="ttc" id="aclassSupervisor_html_aa37daa89523c08b84ae8141299e036f8"><div class="ttname"><a href="classSupervisor.html#aa37daa89523c08b84ae8141299e036f8">Supervisor::calculatePay</a></div><div class="ttdeci">double calculatePay()</div><div class="ttdef"><b>Definition:</b> Supervisor.cpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

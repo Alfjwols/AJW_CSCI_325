@@ -25,8 +25,9 @@ void \mbox{\hyperlink{classOfficer_aeadece05a1a0b7fb29bd412830d2e07a}{print}} ()
 \item 
 double \mbox{\hyperlink{classOfficer_a1fa1aad39b9e95be7a088990ebf17059}{calculate\+Pay}} ()
 \item 
-\mbox{\Hypertarget{classOfficer_ac75c45d6e8628606278cb4ce6596f67f}\label{classOfficer_ac75c45d6e8628606278cb4ce6596f67f}} 
-{\bfseries Officer} (int ID, int years, double hourly\+Rate, float hours\+Worked, double evilness)
+\mbox{\hyperlink{classOfficer_a80ac1e36a3f36c3a7e12b5dc9320ad89}{Officer}} ()
+\item 
+\mbox{\hyperlink{classOfficer_ac75c45d6e8628606278cb4ce6596f67f}{Officer}} (int ID, int years, double hourly\+Rate, float hours\+Worked, double evilness)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -37,6 +38,47 @@ double {\bfseries evilness}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOfficer_a80ac1e36a3f36c3a7e12b5dc9320ad89}\label{classOfficer_a80ac1e36a3f36c3a7e12b5dc9320ad89}} 
+\index{Officer@{Officer}!Officer@{Officer}}
+\index{Officer@{Officer}!Officer@{Officer}}
+\doxysubsubsection{\texorpdfstring{Officer()}{Officer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Officer\+::\+Officer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+default constructor for the \mbox{\hyperlink{classOfficer}{Officer}} class
+
+\begin{DoxyPostcond}{Postcondition}
+evilness is initialized to 500 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classOfficer_ac75c45d6e8628606278cb4ce6596f67f}\label{classOfficer_ac75c45d6e8628606278cb4ce6596f67f}} 
+\index{Officer@{Officer}!Officer@{Officer}}
+\index{Officer@{Officer}!Officer@{Officer}}
+\doxysubsubsection{\texorpdfstring{Officer()}{Officer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Officer\+::\+Officer (\begin{DoxyParamCaption}\item[{int}]{ID,  }\item[{int}]{years,  }\item[{double}]{hourly\+Rate,  }\item[{float}]{hours\+Worked,  }\item[{double}]{evilness }\end{DoxyParamCaption})}
+
+constructor for the \mbox{\hyperlink{classOfficer}{Officer}} class with initializers
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & ID the ID of the officer \\
+\hline
+{\em int} & years the years the \mbox{\hyperlink{classOfficer}{Officer}} has been at the company \\
+\hline
+{\em double} & hourly\+Rate the hourly salary of the \mbox{\hyperlink{classOfficer}{Officer}} \\
+\hline
+{\em float} & hours\+Worked the amount of hours the \mbox{\hyperlink{classOfficer}{Officer}} has accumilated \\
+\hline
+{\em double} & evilness the evilness of the \mbox{\hyperlink{classOfficer}{Officer}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the ID, years, hourly\+Rate, hours\+Wroked, and evilness are initilaized to the specified values 
+\end{DoxyPostcond}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classOfficer_a1fa1aad39b9e95be7a088990ebf17059}\label{classOfficer_a1fa1aad39b9e95be7a088990ebf17059}} 
 \index{Officer@{Officer}!calculatePay@{calculatePay}}
@@ -44,9 +86,14 @@ double {\bfseries evilness}
 \doxysubsubsection{\texorpdfstring{calculatePay()}{calculatePay()}}
 {\footnotesize\ttfamily double Officer\+::calculate\+Pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+Calculates pay as (hourly\+Rate + evilness) $\ast$ hours\+Worked
+
+\begin{DoxyReturn}{Returns}
+double the pay owed to the \mbox{\hyperlink{classOfficer}{Officer}} 
+\end{DoxyReturn}
 
 
-Reimplemented from \mbox{\hyperlink{classEmployee}{Employee}}.
+Reimplemented from \mbox{\hyperlink{classEmployee_a01c2c44e15434237db28832f6972e960}{Employee}}.
 
 \mbox{\Hypertarget{classOfficer_aeadece05a1a0b7fb29bd412830d2e07a}\label{classOfficer_aeadece05a1a0b7fb29bd412830d2e07a}} 
 \index{Officer@{Officer}!print@{print}}
@@ -54,13 +101,19 @@ Reimplemented from \mbox{\hyperlink{classEmployee}{Employee}}.
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
 {\footnotesize\ttfamily void Officer\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+runs \mbox{\hyperlink{classEmployee_a79556ad700627dba88049f487a34a762}{Employee\+::print()}} to print out \mbox{\hyperlink{classEmployee}{Employee}} info and appends the \textquotesingle{}evilness\textquotesingle{} amount
+
+\begin{DoxyReturn}{Returns}
+void ~\newline
+ 
+\end{DoxyReturn}
 
 
-Reimplemented from \mbox{\hyperlink{classEmployee}{Employee}}.
+Reimplemented from \mbox{\hyperlink{classEmployee_a79556ad700627dba88049f487a34a762}{Employee}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Officer.\+h\item 
-Officer.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Officer_8h}{Officer.\+h}}\item 
+\mbox{\hyperlink{Officer_8cpp}{Officer.\+cpp}}\end{DoxyCompactItemize}
