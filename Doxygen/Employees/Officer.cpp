@@ -1,3 +1,14 @@
+/**
+ * @file Officer.cpp
+ * @author alfonsowolski
+ * @date 2025-04-18
+ * @brief the implementation of the Officer class
+ * 
+ * the implementation of the Officer constuctor, Officer constructor w/ initializers, print, and calculate pay
+ */
+
+
+
 #include "Officer.h"
 #include <iostream>
 

@@ -1,7 +1,19 @@
+/**
+ * @file Supervisor.cpp
+ * @author alfonsowolski
+ * @date 2025-04-18
+ * @brief implementation of the Supervisor class
+ * 
+ * implementation of the Supervisor constructor, Supervisor cunstructor w/ initializers, print, and calculatePay
+ */
+
+
+
 #include "Supervisor.h"
 #include <iostream>
 
 using namespace std;
+
 
 Supervisor::Supervisor() {
   numSupervised = -1;

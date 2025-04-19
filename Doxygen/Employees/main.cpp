@@ -1,3 +1,13 @@
+/**
+ * @file main.cpp
+ * @author alfonsowolski
+ * @date 2025-04-18
+ * @brief The Program Interaction File
+ * 
+ * Allows user to see the function of the Employee, Officer, and Supervisor classes
+ */
+
+
 
 #include <iostream>
 #include "Employee.h"

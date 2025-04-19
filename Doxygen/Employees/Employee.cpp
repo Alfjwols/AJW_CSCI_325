@@ -1,3 +1,14 @@
+/**
+ * @file Employee.cpp
+ * @author alfonsowolski
+ * @date 2025-04-18
+ * @brief The implementation of the Employee class
+ * 
+ * The implementation of the Emplyee constuctor, Employee constuctor w/ initializers, print, aniversary, and calculatePay
+ */
+
+
+
 #include "Employee.h"
 #include <iostream>
 
