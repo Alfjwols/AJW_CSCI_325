@@ -58,7 +58,7 @@ void Deque::change_blocks(int amount, bool toFront){
 void Deque::push_front(int num){
 
   if( start.second == 0){ // block is full?
-    if( start.first == 0){ // in first block
+    if( start.first == 0 && elements != 0){ // in first block and not first element
       change_blocks(1, true); // adds new block (new block is at blockmap[0])
     }
     else{ // there is a empty block before current
@@ -70,9 +70,10 @@ void Deque::push_front(int num){
     end.first++; // end gets pushed forward by a block due to adding a new block
 
   }
-  else{ // not at end of block
+  else if(elements != 0){ // not at end of block
     start.second--; // move to earlier (empty) element in block
   }
+  // must be first element if both above did not fire thus nothing extra needs changed
 
   blockmap[start.first][start.second] = num; // set the new start location with the value num
   elements++;
@@ -80,7 +81,9 @@ void Deque::push_front(int num){
 
 void Deque::push_back(int num){
 
-  if(end.second == blockSize -1){ // is at end of block
+
+  
+  if(end.second == blockSize -1 && elements != 0){ // is at end of block and not first element
 
     if(end.first == rows){ // is at last block
       change_blocks(1, false);
@@ -91,9 +94,10 @@ void Deque::push_back(int num){
 
     end.second = 0; // set to start of block
   }
-  else{ // not at end of block
+  else if (elements != 0){ // not at end of block and not first element
     end.second++;
   }
+  // was first element if both above did not fire thus nothing extra needs changed
 
   blockmap[end.first][end.second] = num;
   elements++;
