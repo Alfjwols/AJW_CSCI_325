@@ -19,12 +19,11 @@ class Deque{
 /**
  * Constructor for the Deque class
  *
- * @param int Rows the number of rows the Deque should start with
  * @param int BlockSize the amount of elements each block can hold 
- * @post blockSize, rows are set to respective values, size = 0, blockmap is initialized
+ * @post blockSize is set to respective value, size = 0, blockmap is initialized with 5 blocks
  * 
  */
-  Deque(int Rows, int BlockSize);
+  Deque(int BlockSize);
   
 
 /**

@@ -10,9 +10,9 @@
 #include "deque.h"
 #include <utility>
 
-Deque::Deque(int Rows, int BlockSize){
+Deque::Deque(int BlockSize){
   blockSize = BlockSize;
-  rows = Rows;
+  rows = 5; // set to default of 5
 
   blockmap = new int*[rows];
   
