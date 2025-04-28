@@ -133,7 +133,18 @@ class Deque{
  */
   int size();
 
+
+/**
+ * [] operator for the deque that allos the user to eaily grab a specified element from the deque
+ *
+ * @param int index the place from which to grab from blockmap
+ * @pre blockmap i initialized and index is less than elements
+ * @return int& a reference to the number at the specified location  
+ * 
+ */
   int& operator[](int index);
+
+  void print();
   
  private:
   int** blockmap; // 2d array storing blocks of ints

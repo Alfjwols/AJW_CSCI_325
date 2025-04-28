@@ -13,6 +13,8 @@
 
 using namespace std;
 
+void Print(Deque& deq);
+
 void DisplayInfo(Deque& deq);
 
 void GrabNumber(Deque& deq);
@@ -45,6 +47,7 @@ bool AskUser(Deque& deq){
        << "(A) to add a number to the deque" << endl
        << "(G) to grab a number from the deque" << endl
        << "(I) to display info about the deque" << endl
+       << "(P) to print the values in deque" << endl
        << "(Q) to quit" << endl;
 
   char c;
@@ -60,6 +63,9 @@ bool AskUser(Deque& deq){
     break;
   case 'i':
     DisplayInfo(deq);
+    break;
+  case 'p':
+    Print(deq);
     break;
   case 'q':
     return 0;
@@ -101,7 +107,7 @@ void GrabNumber(Deque& deq){
 
   if( c == 'f'){
     cout << "From Front: " << deq.pop_front() << endl;
-    cout << "New Back: " << deq.front() << endl;
+    cout << "New Front: " << deq.front() << endl;
   }
   else if( c == 'b'){
     cout << "From Back: " << deq.pop_back() << endl;
@@ -121,4 +127,9 @@ void DisplayInfo(Deque& deq){
        << "| Front: " << deq.front() << endl
        << "| Back: " << deq.back() << endl; 
     
+}
+
+void Print(Deque& deq){
+  cout << "Printing" << endl;
+  deq.print();
 }

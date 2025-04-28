@@ -9,6 +9,7 @@
 
 #include "deque.h"
 #include <utility>
+#include <iostream>
 
 Deque::Deque(int BlockSize){
   blockSize = BlockSize;
@@ -186,4 +187,19 @@ int& Deque::operator[](int index){
   int element = (index + start.second)%blockSize;
 
   return blockmap[block][element];
+}
+
+void Deque::print(){
+  int block, element;
+
+  for(int i = 0; i < elements; i++){
+    block = start.first + (i + start.second) / blockSize;
+    element = (i + start.second) % blockSize;
+    std::cout << blockmap[block][element] << " ";
+
+    if(element == blockSize -1){
+      std::cout << std::endl;
+    }
+  }
+    
 }
