@@ -43,7 +43,7 @@ void Deque::change_blocks(int amount, bool toFront){
   //std::cout << "Starting" << std::endl;
   int** arr2 = new int*[rows + amount];
   int num = (toFront)? amount : 0;
-
+  int num2 = (amount < 0)? -1 : 0;
   for(int i = 0; i < rows + amount; i++){
     //std::cout << "arr2[" << i << "]" << std::endl;
     arr2[i] = new int[blockSize];
@@ -53,11 +53,12 @@ void Deque::change_blocks(int amount, bool toFront){
   }
 
   
-  for(int i = 0; i < rows; i++){
-    //std::cout << "Deleting arr2[" << (i+num) << "]" << std::endl;
-    delete [] arr2[i + num];
-    arr2[i + num] = blockmap[i];
-    //std::cout << arr2[i + num] << " = " << blockmap[i] << std::endl;
+  for(int i = 0 ; i < rows - num2*amount; i++){
+    std::cout << "arr2["<< i << " " << (i + num + (num2*num)) << "]" << std::endl;
+    std::cout << "blockmap[" << (i + (num2*num)) << "]" << std::endl;
+    delete [] arr2[i + num + (num2 * num)];
+    arr2[i + num + (num2 * num)] = blockmap[i + (num2*num)];
+    std::cout << arr2[i + num + (num2 * num)] << " = " << blockmap[i + (num2*num)] << std::endl;
   }
   
   delete [] blockmap;
@@ -65,8 +66,10 @@ void Deque::change_blocks(int amount, bool toFront){
 
 
   if(toFront){
-    start.first += amount;
     end.first += amount;
+  }
+  if( amount < 0){
+    start.first += amount;
   }
   rows += amount;
 }
@@ -120,7 +123,7 @@ int Deque::pop_front(){
   }
   
   int num = blockmap[start.first][start.second];
-
+  blockmap[start.first][start.second] = 0;
   // move the start pointer to next element
   
   if (elements > 1){ // if not last element in deque
@@ -134,7 +137,7 @@ int Deque::pop_front(){
   }
 
   if(start.first > 3){ // if there are more than 3 empty blocks before current
-    change_blocks(-2,true); // remove to of the empty blocks
+    change_blocks(-3,true); // remove to of the empty blocks
   }
   
   elements--;
@@ -148,7 +151,7 @@ int Deque::pop_back(){
   }
   
   int num = blockmap[end.first][end.second];
-
+  blockmap[end.first][end.second] = 0;
   // move the end pointer to next element
   
   if (elements > 1){ // if not last element in deque
@@ -163,7 +166,7 @@ int Deque::pop_back(){
 
 
   if(end.first < rows - 3){ // if there are more than 3 empty blocks after current
-    change_blocks(-2,false); // remove to of the empty blocks
+    change_blocks(-3,false); // remove to of the empty blocks
   }
   
   elements--;
