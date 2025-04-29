@@ -19,6 +19,9 @@ Deque::Deque(int BlockSize){
   
   for(int i = 0; i < rows; i++){
     blockmap[i] = new int[blockSize];
+    for(int j = 0; j < blockSize; j++){
+      blockmap[i][j] = 0;
+    }
   }
 
   end = start = {rows / 2, blockSize / 2}; // set to middle element of the middle block
@@ -37,29 +40,42 @@ Deque::~Deque(){
 
 
 void Deque::change_blocks(int amount, bool toFront){
-
+  //std::cout << "Starting" << std::endl;
   int** arr2 = new int*[rows + amount];
+  int num = (toFront)? amount : 0;
 
-  int num = (toFront)? amount : 0; // if toFront then we need to leave the first position empty
-  for(int i = 0; i < rows; i++){
-    arr2[i + num] = blockmap[i]; // if toFront, then we assign blockmap[0] to arr2[i + num] and so on
+  for(int i = 0; i < rows + amount; i++){
+    //std::cout << "arr2[" << i << "]" << std::endl;
+    arr2[i] = new int[blockSize];
+    for( int j = 0; j < blockSize; j++){
+      arr2[i][j] = 0;
+    }
   }
+
+  
+  for(int i = 0; i < rows; i++){
+    //std::cout << "Deleting arr2[" << (i+num) << "]" << std::endl;
+    delete [] arr2[i + num];
+    arr2[i + num] = blockmap[i];
+    //std::cout << arr2[i + num] << " = " << blockmap[i] << std::endl;
+  }
+  
+  delete [] blockmap;
+  blockmap = arr2;
+
 
   if(toFront){
     start.first += amount;
     end.first += amount;
   }
-  
-  delete [] blockmap;
-  blockmap = arr2;
-  
+  rows += amount;
 }
 
 
 void Deque::push_front(int num){
 
-  if( start.second == 0){ // block is full?
-    if( start.first == 0 && elements != 0){ // in first block and not first element
+  if( start.second == 0 && elements !=0){ // block is full? & not first element
+    if( start.first == 0){ // in first block 
       change_blocks(1, true); // adds new block (new block is at blockmap[0])
     }
     else{ // there is a empty block before current
@@ -67,9 +83,6 @@ void Deque::push_front(int num){
     }
     
     start.second = blockSize - 1; // sets start to the last element of the block
-
-    end.first++; // end gets pushed forward by a block due to adding a new block
-
   }
   else if(elements != 0){ // not at end of block
     start.second--; // move to earlier (empty) element in block
@@ -82,17 +95,13 @@ void Deque::push_front(int num){
 
 void Deque::push_back(int num){
 
-
-  
   if(end.second == blockSize -1 && elements != 0){ // is at end of block and not first element
-
-    if(end.first == rows){ // is at last block
+    
+    if(end.first == rows - 1){ // is at last block
       change_blocks(1, false);
     }
-    else{ // there is an empty block after current
-      end.first++;
-    }
-
+    end.first++;
+    
     end.second = 0; // set to start of block
   }
   else if (elements != 0){ // not at end of block and not first element
@@ -190,16 +199,10 @@ int& Deque::operator[](int index){
 }
 
 void Deque::print(){
-  int block, element;
-
-  for(int i = 0; i < elements; i++){
-    block = start.first + (i + start.second) / blockSize;
-    element = (i + start.second) % blockSize;
-    std::cout << blockmap[block][element] << " ";
-
-    if(element == blockSize -1){
-      std::cout << std::endl;
+  for(int i = 0; i < rows; i++){
+    for(int j = 0; j < blockSize; j++){
+      std::cout << blockmap[i][j] << " ";
     }
+    std::cout << std::endl;
   }
-    
 }

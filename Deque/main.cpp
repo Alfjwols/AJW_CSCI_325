@@ -10,8 +10,11 @@
 #include "deque.h"
 #include <cctype>
 #include <iostream>
+#include <random>
 
 using namespace std;
+
+void RandomNums(Deque& deq);
 
 void Print(Deque& deq);
 
@@ -48,6 +51,7 @@ bool AskUser(Deque& deq){
        << "(G) to grab a number from the deque" << endl
        << "(I) to display info about the deque" << endl
        << "(P) to print the values in deque" << endl
+       << "(R) to populate deque with random numbers: " << endl
        << "(Q) to quit" << endl;
 
   char c;
@@ -66,6 +70,9 @@ bool AskUser(Deque& deq){
     break;
   case 'p':
     Print(deq);
+    break;
+  case 'r':
+    RandomNums(deq);
     break;
   case 'q':
     return 0;
@@ -132,4 +139,30 @@ void DisplayInfo(Deque& deq){
 void Print(Deque& deq){
   cout << "Printing" << endl;
   deq.print();
+  cout << endl;
+}
+
+void RandomNums(Deque& deq){
+  int num,min,max;
+  cout << "How many numbers should we generate? ";
+  cin >> num;
+  cout << "What can the smallest number be? ";
+  cin >> min;
+  cout << "What can the largest number be? ";
+  cin >> max;
+
+  random_device rd;
+  mt19937 gen(rd());
+
+  uniform_int_distribution<> dis(min,max);
+  uniform_int_distribution<> pr(0,1); // 0 means push_front 1 means push_back
+
+  for(int i = 0; i < num; i++){
+    if( pr(gen) == 0){
+      deq.push_front(dis(gen));
+    }
+    else{
+      deq.push_back(dis(gen));
+    }
+  }
 }
